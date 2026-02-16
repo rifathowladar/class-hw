@@ -1,0 +1,31 @@
+.ubtn {
+    display: none;
+}
+#btnR {
+    color: #ffff;
+    background-color: blue;
+    border-radius: 8px;
+    padding: 8px 25px;
+    border: none;
+}
+#btnI {
+    color: #ffff;
+    background-color: blue;
+    border-radius: 8px;
+    padding: 8px 25px;
+    border: none;
+}
+.Fbtn {
+    color: #ffff;
+    background-color: red;
+    border-radius: 8px;
+    padding: 2px 10px;
+    border: none;
+}
+.Abtn {
+    color: #ffff;
+    background-color: green;
+    border-radius: 8px;
+    padding: 2px 10px;
+    border: none;
+}
