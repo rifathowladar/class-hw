@@ -8,6 +8,7 @@ let uindex ;
 
 button.addEventListener('click',function(){
     taskList.push(box.value);
+    box.value = ""
     display();
 })
 
@@ -40,6 +41,7 @@ function display(){
 
 ubtn.addEventListener('click', function(){
     taskList[uindex] = box.value ;
+    box.value = ""
     display()
     button.style.display = "inline-block" ;
     ubtn.style.display = "none" ;

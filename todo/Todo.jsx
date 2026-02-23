@@ -1,51 +1,53 @@
 import { useState } from 'react'
 
-function Todo() {
-  let [taskList, setTaskList] = useState([])
-  let [task, setTask] = useState('')
-  let [editIndex, setEditIndex] = useState(null)
+function Footer() {
+  let [task,setTask] = useState("")
+  let [taskList,setTaskList] = useState([])
+  let [upindex, setUpindex] = useState("")
+  let [btnEdit,setBtnEdit] = useState(false)
 
-  let handleChange = (e) => {
-    setTask(e.target.value)
+  let handleChange = (e)=>{
+    setTask(e.target.value);
   }
-
-  let handleClick = () => {
+  let handleSubmit = ()=>{
+    if(!task.trim()) return
     let arr = [...taskList]
     arr.push(task)
     setTaskList(arr)
     setTask("")
   }
-
-  let handleUpdate = () => {
+  let handleDelete = (index)=>{
     let arr = [...taskList]
-    arr[editIndex] = task
+    arr.splice(index,1)
+    setTaskList(arr)
+  }
+  let handleEdit = (item,index)=>{
+    setTask(item)
+    setUpindex(index)
+    setBtnEdit(true)
+  }
+  let handleUpdate =()=>{
+    if(!task.trim()) return
+    let arr = [...taskList]
+    arr[upindex] = task
     setTaskList(arr)
     setTask("")
+    setBtnEdit(false)
   }
-
-  let handleDelete = (index) => {
-    let arr = [...taskList]
-    arr.splice(index, 1)
-    setTaskList(arr)
-  }
-
-  let handleEdit = (index) => {
-    setTask(taskList[index])
-    setEditIndex(index)
-  }
-
   return (
     <>
-      <input onChange={handleChange} type="text" value={task} />
-      <button onClick={handleClick}>Submit</button>
+      <input onChange={handleChange} value={task} type='text'/>
+      {btnEdit ?
       <button onClick={handleUpdate}>Update</button>
-
+      :
+      <button onClick={handleSubmit}>Submit</button>
+      }
+      
       <ol>
-        {taskList.map((item, index) => (
-          <li key={index}>
-            {item}
-            <button onClick={() => handleEdit(index)}>Edit</button>
-            <button onClick={() => handleDelete(index)}>Delete</button>
+        {taskList.map((item,index)=>(
+          <li>{item}
+          <button onClick={()=>handleDelete(index)}>Delet</button>
+          <button onClick={()=>handleEdit(item,index)}>Edit</button>
           </li>
         ))}
       </ol>
@@ -53,4 +55,4 @@ function Todo() {
   )
 }
 
-export default Todo
+export default Footer
