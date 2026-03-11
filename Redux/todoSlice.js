@@ -15,6 +15,7 @@ export const todoSlice = createSlice({
   reducers: {
 
     addTodo: (state,action)=>{
+      if(!state.task.trim()) return
       state.value.arr.push(action.payload)
     },
 
@@ -23,6 +24,7 @@ export const todoSlice = createSlice({
     },
 
     updateTodo: (state,action)=>{
+      if(!state.task.trim()) return
       state.value.arr[action.payload.index] = action.payload.item
     },
 
