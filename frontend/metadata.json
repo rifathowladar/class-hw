@@ -1,0 +1,6 @@
+{
+  "name": "AuthFlow & Task Manager",
+  "description": "Complete authentication system (Register, Gmail Verification, Login, Forgot Password, Reset Password) with a full-featured, backend-ready Todo Task Manager.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
